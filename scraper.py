@@ -11,13 +11,14 @@ service = Service(executable_path="./chromedriver")
 driver = webdriver.Chrome(service=service)
 
 driver.get("https://www.google.com")
-input_element = driver.find_element(By.CLASS_NAME, "gLFyf")
-input_element.clear() # clear first before inputting text
-input_element.send_keys("Data Science Jobs in Nigeria" + Keys.ENTER)
 
 # Crash the program after 5 seconds if the element does not exist
 WebDriverWait(driver, 5).until(
-    EC.presense_of_element_located((By.CLASS_NAME, "")))
+    EC.presense_of_element_located((By.CLASS_NAME, "gLFyf")))
+
+input_element = driver.find_element(By.CLASS_NAME, "gLFyf")
+input_element.clear() # clear first before inputting text
+input_element.send_keys("Data Science Jobs in Nigeria" + Keys.ENTER)
 
 time.sleep(10)
 
