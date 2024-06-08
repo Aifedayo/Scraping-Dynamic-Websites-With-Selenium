@@ -23,6 +23,7 @@ input_element.send_keys("Data Science Jobs in Nigeria" + Keys.ENTER)
 time.sleep(10)
 
 link = driver.find_element(By.PARTIAL_LINK_TEXT, "Data Science") # use LINK_TEXT if you want exact match
+# Use find_elements to  return an array that you can iterate over
 link.click()
 
 driver.quit()
