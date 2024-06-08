@@ -24,6 +24,7 @@ input_element.send_keys("Data Science Jobs in Nigeria" + Keys.ENTER)
 WebDriverWait(driver, 5).until(
     EC.presense_of_element_located((By.PARTIAL_LINK_TEXT, "Data Science")))
 
+
 link = driver.find_element(By.PARTIAL_LINK_TEXT, "Data Science") # use LINK_TEXT if you want exact match
 # Use find_elements to  return an array that you can iterate over
 link.click()
