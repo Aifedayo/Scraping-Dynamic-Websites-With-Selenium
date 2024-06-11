@@ -1,4 +1,5 @@
 import time
+import requests
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -27,5 +28,8 @@ WebDriverWait(driver, 5).until(
 link = driver.find_element(By.PARTIAL_LINK_TEXT, "Data Science") # use LINK_TEXT if you want exact match
 # Use find_elements to  return an array that you can iterate over
 link.click()
+
+link = "orteil.dashnet.org/cookieclicker/"
+
 
 driver.quit()
