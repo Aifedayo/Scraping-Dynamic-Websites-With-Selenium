@@ -10,3 +10,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 # Instantiate the service
 service = Service(executable_path="./chromedriver")
+driver = webdriver.Chrome(service=service)
+
+driver.get("https://orteil.dashnet.org/cookieclicker/")
