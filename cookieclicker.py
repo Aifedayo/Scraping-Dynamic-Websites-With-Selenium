@@ -13,3 +13,13 @@ service = Service(executable_path="./chromedriver")
 driver = webdriver.Chrome(service=service)
 
 driver.get("https://orteil.dashnet.org/cookieclicker/")
+
+def cookie_clicker():
+    cookie_id = "bigCookie"
+
+    cookie = driver.find_element(By.ID, cookie_id)
+    cookie.click()
+
+
+if __name__ == "__main__":
+    cookie_clicker()
