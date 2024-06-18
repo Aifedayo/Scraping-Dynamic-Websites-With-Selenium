@@ -17,6 +17,9 @@ driver.get("https://orteil.dashnet.org/cookieclicker/")
 def cookie_clicker():
     cookie_id = "bigCookie"
 
+    WebDriverWait(driver, 5).until(
+        EC.presence_of_element_located((By.ID, cookie_id))
+    )
     cookie = driver.find_element(By.ID, cookie_id)
     cookie.click()
 
