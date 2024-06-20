@@ -23,8 +23,14 @@ def cookie_clicker():
     language = driver.find_element(By.XPATH, "//*[contains(text(), 'English')]")
     language.click()
 
+
+    WebDriverWait(driver, 5).until(
+        EC.presence_of_element_located((By.ID, cookie_id))
+    )
     cookie = driver.find_element(By.ID, cookie_id)
     cookie.click()
+
+    time.sleep(10)
 
 
 if __name__ == "__main__":
