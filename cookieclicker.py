@@ -16,6 +16,9 @@ driver.get("https://orteil.dashnet.org/cookieclicker/")
 
 def cookie_clicker():
     cookie_id = "bigCookie"
+    cookies_id = "cookies"
+    product_price_prefix = "productPrice"
+    product_prefix = "product"
 
     WebDriverWait(driver, 5).until(
         EC.presence_of_element_located((By.XPATH, "//*[contains(text(), 'English')]"))
@@ -28,9 +31,26 @@ def cookie_clicker():
         EC.presence_of_element_located((By.ID, cookie_id))
     )
     cookie = driver.find_element(By.ID, cookie_id)
-    cookie.click()
 
-    time.sleep(10)
+    time.sleep(2)
+
+    while True:
+        cookie.click()
+        cookies_count = driver.find_element(By.ID, cookies_id).text.split(" ")[0]
+        cookies_count = int(cookies_count.replace(",", ""))
+
+        for i in range(4):
+            product_price = driver.find_element(By.ID, product_price_prefix + str(i)).text.replace(",", "")
+
+            if not product_price.isdigit():
+                continue
+            
+            product_price = int(product_price)
+
+            if cookies_count >= product_price:
+                product = driver.find_element(By.ID, product_prefix + str(i))
+                product.click()
+                break
 
 
 if __name__ == "__main__":
